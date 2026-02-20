@@ -1,0 +1,36 @@
+:root { --primary: #006b54; --primary-hover: #008f70; --bg: #f8fafc; --white: #ffffff; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); overflow: hidden; }
+
+/* Login Effects */
+.login-overlay { position: fixed; inset: 0; background: linear-gradient(135deg, var(--primary) 0%, #004d3d 100%); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.login-card { background: var(--white); padding: 50px; border-radius: 24px; width: 420px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+
+.animate-pop { animation: popIn 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48); }
+@keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+.btn-login-glow { 
+    width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; 
+    font-weight: 800; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: 0.3s; box-shadow: 0 4px 15px rgba(0,107,84,0.4);
+}
+.btn-login-glow:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,107,84,0.5); }
+
+/* Layout & Interactivity */
+.app-hidden { display: none; }
+.app-visible { display: flex; height: 100vh; width: 100vw; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Chat Bubbles */
+.chat-messages { display: flex; flex-direction: column; gap: 12px; padding: 20px; height: 400px; overflow-y: auto; }
+.msg { padding: 12px 16px; border-radius: 14px; max-width: 75%; font-size: 0.95rem; line-height: 1.4; animation: slideMsg 0.3s ease; }
+@keyframes slideMsg { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.msg.sent { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+.msg.received { background: #e2e8f0; color: #1e293b; align-self: flex-start; border-bottom-left-radius: 2px; }
+
+/* Grid de Cursos */
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; padding-top: 20px; }
+.course-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; }
+.course-card:hover { border-color: var(--primary); transform: scale(1.02); cursor: pointer; }
+.course-img { height: 140px; background: #1e293b; display: flex; align-items: center; justify-content: center; color: white; }
